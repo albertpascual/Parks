@@ -213,7 +213,7 @@
                                     <action selector="pushNotificationChanged:" destination="wsn-Gr-6uq" eventType="valueChanged" id="Lbr-jf-XoJ"/>
                                 </connections>
                             </switch>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Yk-Nx3">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Udy-Yk-Nx3" customClass="RAMPaperSwitch" customModule="YosemiteBus" customModuleProvider="target">
                                 <rect key="frame" x="397" y="164" width="51" height="31"/>
                                 <connections>
                                     <action selector="removeAdsChanged:" destination="wsn-Gr-6uq" eventType="valueChanged" id="UCc-F7-rvm"/>

@@ -68,6 +68,7 @@
 		888781931A4E284000D76D83 /* 80.png in Resources */ = {isa = PBXBuildFile; fileRef = 888781901A4E284000D76D83 /* 80.png */; };
 		888781951A4E2A1400D76D83 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 888781941A4E2A1400D76D83 /* 180.png */; };
 		888781971A4E2DC300D76D83 /* AdUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888781961A4E2DC300D76D83 /* AdUtils.swift */; };
+		88ED31441A5D865800E1D75B /* RAMPaperSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ED31431A5D865800E1D75B /* RAMPaperSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		888781901A4E284000D76D83 /* 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80.png; sourceTree = "<group>"; };
 		888781941A4E2A1400D76D83 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 		888781961A4E2DC300D76D83 /* AdUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdUtils.swift; sourceTree = SOURCE_ROOT; };
+		88ED31431A5D865800E1D75B /* RAMPaperSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMPaperSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 		76B296BC1A41384E0086CA90 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				88ED31421A5D865800E1D75B /* PaperSwitch */,
 				8838DB551A54AE3F00F7DE44 /* Paging */,
 				8838DB501A54A27700F7DE44 /* AF+Image+Helper */,
 				8838DB4D1A546F1000F7DE44 /* Reachability */,
@@ -390,6 +393,14 @@
 			path = Icons;
 			sourceTree = SOURCE_ROOT;
 		};
+		88ED31421A5D865800E1D75B /* PaperSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				88ED31431A5D865800E1D75B /* RAMPaperSwitch.swift */,
+			);
+			path = PaperSwitch;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,6 +539,7 @@
 				76B296C41A41384E0086CA90 /* SFlatButton.swift in Sources */,
 				888781781A41F5FA00D76D83 /* HUDAssets.swift in Sources */,
 				888781791A41F5FA00D76D83 /* HUDContentView.swift in Sources */,
+				88ED31441A5D865800E1D75B /* RAMPaperSwitch.swift in Sources */,
 				8887815B1A40F9BA00D76D83 /* CloudManager.swift in Sources */,
 				8887817E1A425C0800D76D83 /* BusScheduleViewController.swift in Sources */,
 				76B296C51A41384E0086CA90 /* SCLAlertView.swift in Sources */,

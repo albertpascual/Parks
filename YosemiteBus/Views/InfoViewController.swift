@@ -15,7 +15,7 @@ import StoreKit
 class InfoViewController: ViewController, ADBannerViewDelegate, SKProductsRequestDelegate, SKRequestDelegate,SKPaymentTransactionObserver {
 
     @IBOutlet var iAdLabel: UILabel!
-    @IBOutlet var iAdsSwitch: UISwitch!
+    @IBOutlet var iAdsSwitch: RAMPaperSwitch!
     @IBOutlet var pushNotification: UISwitch!
     @IBOutlet weak var adBanner: ADBannerView!
     var request:SKProductsRequest!
@@ -23,6 +23,14 @@ class InfoViewController: ViewController, ADBannerViewDelegate, SKProductsReques
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //https://github.com/Ramotion/paper-switch
+        self.iAdsSwitch.onTintColor = UIColor.greenColor()
+        self.iAdsSwitch.animationDidStartClosure = {(onAnimation: Bool) in
+            
+            //self.animateLabel(self.connectContactsLabel, onAnimation: onAnimation, duration: self.paperSwitch1.duration)
+            //self.animateImageView(nil, onAnimation: onAnimation, duration: self.iAdsSwitch.duration)
+        }
 
         // Check if they purchased the way to remove Ads
         if  AdUtils.isAdHidden(adBanner) == true {
@@ -30,6 +38,12 @@ class InfoViewController: ViewController, ADBannerViewDelegate, SKProductsReques
         }
         
        adBanner.delegate = self
+    }
+    
+    private func animateImageView(imageView: UIImageView, onAnimation: Bool, duration: NSTimeInterval) {
+        UIView.transitionWithView(imageView, duration: duration, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: {
+            //imageView.image = UIImage(named: onAnimation ? "img_phone_on" : "img_phone_off")
+            }, completion:nil)
     }
 
     override func didReceiveMemoryWarning() {
