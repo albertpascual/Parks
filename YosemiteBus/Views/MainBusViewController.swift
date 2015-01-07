@@ -499,6 +499,11 @@ class MainBusViewController: ViewController, CLLocationManagerDelegate, ADBanner
         self.adBanner.hidden = true
     }
     
+    func bannerViewDidLoadAd(banner: ADBannerView!)
+    {
+        println("Banner loaded")
+    }
+    
     /*
     // MARK: - Navigation
 

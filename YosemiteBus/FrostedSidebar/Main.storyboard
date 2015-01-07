@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="00u-vZ-mxX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="00u-vZ-mxX">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -96,7 +96,7 @@
                                 </connections>
                             </segmentedControl>
                             <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="gKv-wJ-LC9">
-                                <rect key="frame" x="142" y="551" width="320" height="50"/>
+                                <rect key="frame" x="142" y="550" width="320" height="50"/>
                             </adBannerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time cannot be estimated" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ne-lA-ILO">
                                 <rect key="frame" x="345" y="46" width="217" height="21"/>
@@ -141,7 +141,7 @@
                             <constraint firstItem="BHH-DF-7fm" firstAttribute="top" secondItem="Cnn-cw-Eew" secondAttribute="bottom" constant="25" id="ZPL-vB-9qF"/>
                             <constraint firstItem="aXT-I8-4Vl" firstAttribute="top" secondItem="X4b-dZ-l1O" secondAttribute="top" id="aG0-wg-dfN"/>
                             <constraint firstItem="ddv-IQ-kzi" firstAttribute="top" secondItem="28J-8P-oJS" secondAttribute="bottom" id="aMc-Vk-cJA"/>
-                            <constraint firstItem="AhR-c2-Zoo" firstAttribute="top" secondItem="gKv-wJ-LC9" secondAttribute="bottom" constant="-1" id="cu4-6n-Y7k"/>
+                            <constraint firstItem="AhR-c2-Zoo" firstAttribute="top" secondItem="gKv-wJ-LC9" secondAttribute="bottom" id="cu4-6n-Y7k"/>
                             <constraint firstItem="ddv-IQ-kzi" firstAttribute="leading" secondItem="7Ne-lA-ILO" secondAttribute="leading" constant="-82" id="dQi-k6-Avf"/>
                             <constraint firstItem="7Ne-lA-ILO" firstAttribute="top" secondItem="28J-8P-oJS" secondAttribute="bottom" constant="26" id="gbD-6I-m0E"/>
                             <constraint firstItem="Cnn-cw-Eew" firstAttribute="top" secondItem="I6o-9F-JKU" secondAttribute="bottom" constant="82" id="hfp-6P-34P"/>

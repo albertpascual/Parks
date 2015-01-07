@@ -10,31 +10,31 @@
 	<string>YosemiteBus</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>476985D5E24EFA9D2A56251A35B21104AEFD4779</key>
-		<string>https://github.com/alpascual/YosemiteBus.git</string>
+		<key>5314DA7BD540DCA5086472273E38452D685AC76D</key>
+		<string>https://github.com/alpascual/Parks.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>YosemiteBus.xcodeproj</string>
+	<string>YosemiteBus/YosemiteBus.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>476985D5E24EFA9D2A56251A35B21104AEFD4779</key>
-		<string>../..</string>
+		<key>5314DA7BD540DCA5086472273E38452D685AC76D</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/alpascual/YosemiteBus.git</string>
+	<string>https://github.com/alpascual/Parks.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>476985D5E24EFA9D2A56251A35B21104AEFD4779</string>
+	<string>5314DA7BD540DCA5086472273E38452D685AC76D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>476985D5E24EFA9D2A56251A35B21104AEFD4779</string>
+			<string>5314DA7BD540DCA5086472273E38452D685AC76D</string>
 			<key>IDESourceControlWCCName</key>
-			<string>YosemiteBus</string>
+			<string>Parks</string>
 		</dict>
 	</array>
 </dict>
