@@ -450,6 +450,9 @@ class MainBusViewController: ViewController, CLLocationManagerDelegate, ADBanner
                 self.busArrivedButton.enabled = true
             }
         }
+        
+        // Enabled anyway to see who is pressing it for now
+        self.busArrivedButton.enabled = true
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
