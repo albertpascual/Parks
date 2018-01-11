@@ -40,7 +40,7 @@ public class PullToRefreshView: UIView {
     public let labelTitle = UILabel() // this maybe should be added in animator???
 
     private var scrollViewBouncesDefaultValue: Bool = false
-    private var scrollViewInsetsDefaultValue: UIEdgeInsets = UIEdgeInsetsZero
+    private var scrollViewInsetsDefaultValue: UIEdgeInsets = UIEdgeInsets.zero
 
     private var animator: PullToRefreshViewAnimator = Animator()
     private var action: (() -> ()) = {}
@@ -61,13 +61,13 @@ public class PullToRefreshView: UIView {
     
     //MARK: Object lifecycle methods
 
-    convenience init(action :(() -> ()), frame: CGRect) {
+    convenience init(action :@escaping (() -> ()), frame: CGRect) {
         
         self.init(frame: frame)
         self.action = action;
     }
     
-    convenience init(action :(() -> ()), frame: CGRect, animator: PullToRefreshViewAnimator) {
+    convenience init(action :@escaping (() -> ()), frame: CGRect, animator: PullToRefreshViewAnimator) {
         
         self.init(frame: frame)
         self.action = action;
@@ -77,24 +77,24 @@ public class PullToRefreshView: UIView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        self.autoresizingMask = .FlexibleWidth
+        self.autoresizingMask = .flexibleWidth
         labelTitle.frame = bounds
-        labelTitle.textAlignment = .Center
-        labelTitle.autoresizingMask = .FlexibleLeftMargin | .FlexibleRightMargin
-        labelTitle.textColor = UIColor.blackColor()
+        labelTitle.textAlignment = .center
+        labelTitle.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        labelTitle.textColor = UIColor.black
         labelTitle.text = "Pull to refresh"
         addSubview(labelTitle)
     }
     
     public required init(coder aDecoder: NSCoder) {
         
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
         // Currently it is not supported to load view from nib
     }
     
     deinit {
         
-        var scrollView = superview as? UIScrollView
+        let scrollView = superview as? UIScrollView
         scrollView?.removeObserver(self, forKeyPath: contentOffsetKeyPath, context: &KVOContext)
     }
     
@@ -104,16 +104,16 @@ public class PullToRefreshView: UIView {
     public override func layoutSubviews() {
         
         super.layoutSubviews()
-        animator.layoutLayers(self)
+        animator.layoutLayers(superview: self)
     }
     
-    public override func willMoveToSuperview(newSuperview: UIView!) {
+    public override func willMove(toSuperview newSuperview: UIView!) {
 
         superview?.removeObserver(self, forKeyPath: contentOffsetKeyPath, context: &KVOContext)
         if (newSuperview != nil && newSuperview.isKindOfClass(UIScrollView)) {
-            newSuperview.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .Initial, context: &KVOContext)
-            scrollViewBouncesDefaultValue = (newSuperview as UIScrollView).bounces
-            scrollViewInsetsDefaultValue = (newSuperview as UIScrollView).contentInset
+            newSuperview.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .initial, context: &KVOContext)
+            scrollViewBouncesDefaultValue = (newSuperview as! UIScrollView).bounces
+            scrollViewInsetsDefaultValue = (newSuperview as! UIScrollView).contentInset
         }
     }
     
@@ -127,29 +127,29 @@ public class PullToRefreshView: UIView {
             if (keyPath == contentOffsetKeyPath && object as? UIScrollView == scrollView) {
                 var scrollView = object as? UIScrollView
                 if (scrollView != nil) {
-                    println(scrollView?.contentOffset.y)
+                    print(scrollView?.contentOffset.y)
                     
                     var offsetWithoutInsets = previousOffset + scrollViewInsetsDefaultValue.top
                     if (offsetWithoutInsets < -self.frame.size.height) {
-                        if (scrollView?.dragging == false && loading == false) {
+                        if (scrollView?.isDragging == false && loading == false) {
                             loading = true
                         } else if (loading == true) {
                             labelTitle.text = "Loading ..."
                         } else {
                             labelTitle.text = "Release to refresh"
-                            animator.changeProgress(-offsetWithoutInsets / self.frame.size.height)
+                            animator.changeProgress(progress: -offsetWithoutInsets / self.frame.size.height)
                         }
                     } else if (loading == true) {
                         labelTitle.text = "Loading ..."
                     } else if (offsetWithoutInsets < 0) {
                         labelTitle.text = "Pull to refresh"
-                        animator.changeProgress(-offsetWithoutInsets / self.frame.size.height)
+                        animator.changeProgress(progress: -offsetWithoutInsets / self.frame.size.height)
                     }
                     previousOffset = scrollView!.contentOffset.y
                 }
             }
         } else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValue(forKeyPath: keyPath, of: object, change: change as? [NSKeyValueChangeKey : Any], context: context)
         }
     }
     
@@ -158,16 +158,16 @@ public class PullToRefreshView: UIView {
 
     private func startAnimating() {
         
-        var scrollView = superview as UIScrollView
+        let scrollView = superview as! UIScrollView
         var insets = scrollView.contentInset
         insets.top += self.frame.size.height
         
         // we need to restore previous offset because we will animate scroll view insets and regular scroll view animating is not applied then
         scrollView.contentOffset.y = previousOffset
         scrollView.bounces = false
-        UIView.animateWithDuration(0.3, delay: 0, options:nil, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn, animations: {
             scrollView.contentInset = insets
-            scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -insets.top)
+            scrollView.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: -insets.top)
         }, completion: {finished in
                 self.animator.startAnimation()
                 self.action()
@@ -177,12 +177,12 @@ public class PullToRefreshView: UIView {
     private func stopAnimating() {
         
         self.animator.stopAnimation()
-        var scrollView = superview as UIScrollView
+        let scrollView = superview as! UIScrollView
         scrollView.bounces = self.scrollViewBouncesDefaultValue
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
+        UIView.animate(withDuration: 0.3, animations: { () -> Void in
             scrollView.contentInset = self.scrollViewInsetsDefaultValue
         }) { (Bool) -> Void in
-            self.animator.changeProgress(0)
+            self.animator.changeProgress(progress: 0)
         }
     }
 }

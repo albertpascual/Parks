@@ -336,10 +336,10 @@ extension UIImage {
         return cropToSquare()?.roundCorners(shortest/2)
     }
     
-    func roundCornersToCircle(#border:CGFloat, color:UIColor) -> UIImage?
+    func roundCornersToCircle(border:CGFloat, color:UIColor) -> UIImage?
     {
         let shortest = min(size.width, size.height)
-        return cropToSquare()?.roundCorners(shortest/2, border: border, color: color)
+        return cropToSquare()?.roundCorners(cornerRadius: shortest/2, border: border, color: color)
     }
     
     // MARK: Border
@@ -367,7 +367,7 @@ extension UIImage {
     
     // MARK: Image From URL
     
-    class func imageFromURL(url: String, placeholder: UIImage, shouldCacheImage: Bool = true, closure: (image: UIImage?) -> ()) -> UIImage?
+    class func imageFromURL(url: String, placeholder: UIImage, shouldCacheImage: Bool = true, closure: (_ image: UIImage?) -> ()) -> UIImage?
     {
         // From Cache
         if shouldCacheImage {

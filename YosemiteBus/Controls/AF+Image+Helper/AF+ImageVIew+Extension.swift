@@ -13,7 +13,7 @@ import QuartzCore
 
 extension UIImageView {
         
-    func imageFromURL(url: String, placeholder: UIImage, fadeIn: Bool = true, closure: ((image: UIImage?) -> ())? = nil)
+    func imageFromURL(url: String, placeholder: UIImage, fadeIn: Bool = true, closure: ((_ image: UIImage?) -> ())? = nil)
     {
         self.image = UIImage.imageFromURL(url, placeholder: placeholder, shouldCacheImage: true) {
             (image: UIImage?) in

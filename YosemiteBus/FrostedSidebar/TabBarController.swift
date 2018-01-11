@@ -15,7 +15,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		delegate = self
-		tabBar.hidden = true
+        tabBar.isHidden = true
 		
 		sidebar = FrostedSidebar(itemImages: [
 			UIImage(named: "gear")!,
@@ -31,10 +31,10 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
 		
 		sidebar.isSingleSelect = true
 		sidebar.actionForIndex = [
-			0: {self.sidebar.dismissAnimated(true, completion: { finished in self.selectedIndex = 0}) },
-			1: {self.sidebar.dismissAnimated(true, completion: { finished in self.selectedIndex = 1}) },
-			2: {self.sidebar.dismissAnimated(true, completion: { finished in self.selectedIndex = 2}) },
-			3: {self.sidebar.dismissAnimated(true, completion: { finished in self.selectedIndex = 3}) }]
+            0: {self.sidebar.dismissAnimated(animated: true, completion: { finished in self.selectedIndex = 0}) },
+            1: {self.sidebar.dismissAnimated(animated: true, completion: { finished in self.selectedIndex = 1}) },
+            2: {self.sidebar.dismissAnimated(animated: true, completion: { finished in self.selectedIndex = 2}) },
+            3: {self.sidebar.dismissAnimated(animated: true, completion: { finished in self.selectedIndex = 3}) }]
 	}
 
 }

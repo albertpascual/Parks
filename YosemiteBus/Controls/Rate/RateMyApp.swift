@@ -117,7 +117,7 @@ class RateMyApp : UIViewController,UIAlertViewDelegate{
         
     }
     
-    private func incrementValueForKey(#name:String){
+    private func incrementValueForKey(name:String){
         
         if(countElements(appID) == 0)
         {

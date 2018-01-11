@@ -15,18 +15,18 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func onBurger() {
-        (tabBarController as TabBarController).sidebar.showInViewController(self, animated: true)
+        (tabBarController as! TabBarController).sidebar.showInViewController(viewController: self, animated: true)
     }
     
     func differenceInTime(oldTime: NSDate) -> String
     {
        // method that returns an string on the time difference
-        let elapsedTime = NSDate().timeIntervalSinceDate(oldTime)
+        let elapsedTime = NSDate().timeIntervalSince(oldTime as Date)
         let duration = Int(elapsedTime)
         
-        var seconds = duration % 60
-        var minutes = (duration / 60) % 60
-        var hours = (duration / 3600)
+        let seconds = duration % 60
+        let minutes = (duration / 60) % 60
+        let hours = (duration / 3600)
         
         if ( hours == 0 && minutes == 0) {
             return "seen \(seconds) seconds ago"

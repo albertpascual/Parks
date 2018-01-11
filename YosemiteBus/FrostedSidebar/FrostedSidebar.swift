@@ -52,7 +52,7 @@ public class FrostedSidebar: UIViewController {
     //MARK: Private Properties
     
     private var contentView:            UIScrollView                = UIScrollView()
-    private var blurView:               UIVisualEffectView          = UIVisualEffectView(effect: UIBlurEffect(style: .Dark))
+    private var blurView:               UIVisualEffectView          = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     private var dimView:                UIView                      = UIView()
     private var tapGesture:             UITapGestureRecognizer?     = nil
     private var images:                 [UIImage]                   = []
@@ -62,7 +62,7 @@ public class FrostedSidebar: UIViewController {
     //MARK: Public Methods
     
     required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     public init(itemImages: [UIImage], colors: [UIColor]?, selectedItemIndices: NSIndexSet?){
@@ -102,7 +102,7 @@ public class FrostedSidebar: UIViewController {
     
     public override func loadView() {
         super.loadView()
-        view.backgroundColor = UIColor.clearColor()
+        view.backgroundColor = UIColor.clear
         view.addSubview(dimView)
         view.addSubview(blurView)
         view.addSubview(contentView)
@@ -118,7 +118,7 @@ public class FrostedSidebar: UIViewController {
         return Int(UIInterfaceOrientationMask.All.rawValue)
     }
     
-    public override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+    public override func willAnimateRotation(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
         super.willAnimateRotationToInterfaceOrientation(toInterfaceOrientation, duration: duration)
         
         if isViewLoaded(){
@@ -291,13 +291,13 @@ public class FrostedSidebar: UIViewController {
     }
     
     @objc private func handleTap(recognizer: UITapGestureRecognizer){
-        let location = recognizer.locationInView(view)
-        if !CGRectContainsPoint(contentView.frame, location){
-            dismissAnimated(true, completion: nil)
+        let location = recognizer.location(in: view)
+        if !contentView.frame.contains(location){
+            dismissAnimated(animated: true, completion: nil)
         } else{
-            let tapIndex = indexOfTap(recognizer.locationInView(contentView))
+            let tapIndex = indexOfTap(location: recognizer.location(in: contentView))
             if tapIndex != nil{
-                didTapItemAtIndex(tapIndex!)
+                didTapItemAtIndex(index: tapIndex!)
             }
         }
     }
@@ -314,20 +314,20 @@ public class FrostedSidebar: UIViewController {
                         item.layer.borderColor = UIColor.clearColor().CGColor
                     }
                 }
-                item.layer.borderColor = stroke.CGColor
+                item.layer.borderColor = stroke.cgColor
                 
                 var borderAnimation = CABasicAnimation(keyPath: "borderColor")
-                borderAnimation.fromValue = UIColor.clearColor().CGColor
-                borderAnimation.toValue = stroke.CGColor
+                borderAnimation.fromValue = UIColor.clearColor.cgColorcgColor
+                borderAnimation.toValue = stroke.cgColor
                 borderAnimation.duration = 0.5
-                item.layer.addAnimation(borderAnimation, forKey: nil)
-                selectedIndices.addIndex(index)
+                item.layer.add(borderAnimation, forKey: nil)
+                selectedIndices.add(index)
 				
             } else{
                 if !isSingleSelect{
                     if !calloutsAlwaysSelected{
-                        item.layer.borderColor = UIColor.clearColor().CGColor
-                        selectedIndices.removeIndex(index)
+                        item.layer.borderColor = UIColor.clear.cgColor
+                        selectedIndices.remove(index)
                     }
                 }
             }

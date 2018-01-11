@@ -44,22 +44,22 @@ internal class Window: UIWindow {
         makeKeyAndVisible()
         frameView.center = center
         frameView.alpha = 1.0
-        hidden = false
+        isHidden = false
     }
     
     private var willHide = false
     
     internal func hideFrameView(animated anim: Bool) {
-        let completion: (finished: Bool) -> (Void) = { finished in
+        let completion: (_ finished: Bool) -> (Void) = { finished in
             if finished {
-                self.hidden = true
-                self.resignKeyWindow()
+                self.isHidden = true
+                self.resignKey()
             }
             
             self.willHide = false
         }
         
-        if hidden {
+        if isHidden {
             return
         }
         
@@ -68,7 +68,7 @@ internal class Window: UIWindow {
         if anim {
             UIView.animateWithDuration(0.8, animations: { self.frameView.alpha = 0.0 }, completion)
         } else {
-            completion(finished: true)
+            completion(true)
         }
     }
     
